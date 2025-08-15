@@ -1,7 +1,7 @@
 
 (function() {
     
-    const apiKey = '3v8sVcOxoTqzdMxRGa9GcAQsDEzLm3CjWrh7INf7';
+    const apiKey = 'YOUR_API_KEY';
     const apiUrlBase = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
 
    
