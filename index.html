@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Rover Photo Gallery</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="p-6 md:p-12">
+
+    
+    <header class="text-center mb-10">
+        <h1 class="text-3xl md:text-5xl font-bold mb-2 text-[#e6edf3]">
+            Mars Rover Photo Gallery
+        </h1>
+        <p class="text-lg md:text-xl text-[#8b949e]">
+            Explore the Red Planet through the eyes of NASA's rovers.
+        </p>
+    </header>
+
+    
+    <section class="max-w-4xl mx-auto bg-[#161b22] p-6 md:p-8 rounded-xl shadow-lg border border-[#30363d] mb-10">
+        <h2 class="text-xl md:text-2xl font-semibold mb-6 text-[#e6edf3]">
+            Find Photos by Rover and Date
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+            
+            <div>
+                <label for="rover-select" class="block text-[#8b949e] font-medium mb-2">Select Rover</label>
+                <select id="rover-select" class="w-full bg-[#0d1117] border border-[#30363d] rounded-lg py-2 px-3 text-[#c9d1d9] focus:outline-none focus:ring-2 focus:ring-[#337ab7]">
+                    <option value="curiosity">Curiosity</option>
+                    <option value="opportunity">Opportunity</option>
+                    <option value="spirit">Spirit</option>
+                </select>
+            </div>
+
+            
+            <div>
+                <label for="sol-input" class="block text-[#8b949e] font-medium mb-2">Martian Sol (Day)</label>
+                <input type="number" id="sol-input" value="1000" class="w-full bg-[#0d1117] border border-[#30363d] rounded-lg py-2 px-3 text-[#c9d1d9] focus:outline-none focus:ring-2 focus:ring-[#337ab7]">
+            </div>
+
+            
+            <div>
+                <label for="camera-select" class="block text-[#8b949e] font-medium mb-2">Select Camera</label>
+                <select id="camera-select" class="w-full bg-[#0d1117] border border-[#30363d] rounded-lg py-2 px-3 text-[#c9d1d9] focus:outline-none focus:ring-2 focus:ring-[#337ab7]">
+                   
+                </select>
+            </div>
+
+            
+            <button id="fetch-btn" class="w-full bg-[#337ab7] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#2e69a4] transition-colors duration-200">
+                View Photos
+            </button>
+        </div>
+    </section>
+
+    
+    <section class="max-w-7xl mx-auto">
+        <div id="photo-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            
+            <div id="loading-spinner" class="col-span-full text-center hidden">
+                <svg class="animate-spin h-10 w-10 text-[#337ab7] mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p class="mt-4 text-[#8b949e]">Fetching photos from Mars...</p>
+            </div>
+            <p id="error-message" class="col-span-full text-center text-red-400 hidden"></p>
+        </div>
+    </section>
+    
+    
+    <div id="metadata-modal" class="fixed inset-0 z-50 bg-[#0d1117] bg-opacity-90 backdrop-blur-sm flex justify-center items-center p-4 hidden">
+        <div class="bg-[#161b22] p-6 md:p-8 rounded-xl max-w-2xl w-full border border-[#30363d] relative">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-[#8b949e] hover:text-[#c9d1d9] text-xl">&times;</button>
+            <h3 id="modal-title" class="text-xl md:text-2xl font-semibold mb-4 text-[#e6edf3]">Photo Metadata</h3>
+            <img id="modal-image" src="" alt="Mars Rover Photo" class="w-full h-auto rounded-lg mb-4">
+            <p><strong class="text-[#8b949e]">Rover:</strong> <span id="meta-rover"></span></p>
+            <p><strong class="text-[#8b949e]">Camera:</strong> <span id="meta-camera-name"></span></p>
+            <p><strong class="text-[#8b949e]">Earth Date:</strong> <span id="meta-earth-date"></span></p>
+            <p><strong class="text-[#8b949e]">Martian Sol:</strong> <span id="meta-sol"></span></p>
+            <p><strong class="text-[#8b949e]">Landing Date:</strong> <span id="meta-landing-date"></span></p>
+        </div>
+    </div>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

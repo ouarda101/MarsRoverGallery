@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;600;700&display=swap');
+
+
+body {
+    font-family: 'Orbitron', sans-serif; 
+    background-color: #0c0d1c;
+    
+     background-image: url('background.png');
+    background-size: 200px 200px, 300px 300px, 400px 400px, 500px 500px, 600px 600px, 700px 700px, 100% 100%;
+    background-position: 0 0, 10% 20%, 30% 50%, 50% 70%, 70% 90%, 90% 10%, 0 0;
+    color: #b2c2d4;
+    line-height: 1.6;
+    animation: pan-background 30s linear infinite;
+}
+
+
+@keyframes pan-background {
+    from {
+        background-position: 0 0, 10% 20%, 30% 50%, 50% 70%, 70% 90%, 90% 10%, 0 0;
+    }
+    to {
+        background-position: 100% 100%, 110% 120%, 130% 150%, 150% 170%, 170% 190%, 190% 110%, 100% 100%;
+    }
+}
+
+
+.text-e6edf3 {
+    color: #e6edf3;
+    text-shadow: 0 0 5px rgba(230, 237, 243, 0.4);
+}
+
+
+.bg-161b22 {
+    background-color: rgba(22, 27, 34, 0.8);
+    border: 1px solid #30363d;
+    box-shadow: 0 0 15px rgba(51, 122, 183, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+
+.bg-0d1117 {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    transition: box-shadow 0.3s ease;
+}
+
+.bg-0d1117:focus {
+    box-shadow: 0 0 10px rgba(51, 122, 183, 0.5);
+}
+
+
+.bg-337ab7 {
+    background-color: #337ab7;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.bg-337ab7:hover {
+    background-color: #2e69a4;
+    box-shadow: 0 0 20px #337ab7;
+}
+
+
+.group-hover\:scale-105:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(51, 122, 183, 0.6);
+}
+
+
+.bg-opacity-90 {
+    background-color: rgba(13, 17, 23, 0.9);
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
